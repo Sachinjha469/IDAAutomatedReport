@@ -1,0 +1,43 @@
+S.N.,section,sub_section name,Short code,actual_answer,user_response,Scores
+1,Communication,Communication,Passage based: Purpose (Gender discrimination),4,3,0
+2,Communication,Communication,Passage based: Blanks (Gender discrimination),3,3,1
+3,Communication,Communication,Passage Based: Purpose (Incredible Experiences),4,3,0
+4,Communication,Communication,Passage based: Confilct of interest,1,1,1
+5,Communication,Communication,Context Based Vocabulary: Consumption,2,2,1
+6,Communication,Communication,Context Based Vocabulary: Authority,3,2,0
+7,Communication,Communication,Context Based Vocabulary: Alignment,1,1,1
+8,Communication,Communication,Context Based Vocabulary: Recommend,1,4,0
+9,Critical Thinking,Critical Thinking,Statement and Conclusions: Kraft color advertisement,4,4,1
+10,Critical Thinking,Critical Thinking,Inference and Conclusions: Factory worker's Children,4,2,0
+11,Critical Thinking,Critical Thinking,Arrange words in meaningful sequence,3,3,1
+12,Critical Thinking,Critical Thinking,Inference and Conclusions: Man's Identity card,4,4,1
+13,Critical Thinking,Critical Thinking,Calendar Reasoning: Day of the week,4,4,1
+14,Critical Thinking,Critical Thinking,Letter Series Sequencing,2,4,0
+15,Critical Thinking,Critical Thinking,Clock Reasoning: Right Angle,3,3,1
+16,Critical Thinking,Critical Thinking,Clock Reasoning: Hour hand rotation,4,4,1
+17,Digital Literacy,Digital Literacy,Fake or Real: ForbesIndia,1,1,1
+18,Digital Literacy,Digital Literacy,Fake or Real: Bloomberg,1,1,1
+19,Digital Literacy,Digital Literacy,Fake or Real: The Fauxy,2,2,1
+20,Digital Literacy,Digital Literacy,Fake or Real: 125 rupee coin,2,2,1
+21,Digital Literacy,Digital Literacy,"Advertisement or Not: Inshorts
+",2,2,1
+22,Digital Literacy,Digital Literacy,Advertisement or Not: Instagram,1,2,0
+23,Digital Literacy,Digital Literacy,"Advertisement or Not: Instagram ad
+",1,2,0
+24,Digital Literacy,Digital Literacy,Fact or Opinion: The Guardian,2,2,1
+25,General Knowledge,General Knowledge,Current Affairs: Oscar Award winner,2,2,1
+26,General Knowledge,General Knowledge,Current Affairs: Grammy Award,1,2,0
+27,General Knowledge,General Knowledge,Current Affairs: GDP measures,1,1,1
+28,General Knowledge,General Knowledge,Current Affairs: Ecomomist,1,1,1
+29,General Knowledge,General Knowledge,Current Affairs: Software products,2,2,1
+30,General Knowledge,General Knowledge,Current Affairs: Top technology hub,2,1,0
+31,General Knowledge,General Knowledge,Current Affairs: Olmpics games,1,1,1
+32,General Knowledge,General Knowledge,Current Affairs: Olympic Medals,4,1,0
+33,Technology Aptitude,Technology Aptitude,Concepts of IP address,3,3,1
+34,Technology Aptitude,Technology Aptitude,Definition of Internet,1,1,1
+35,Technology Aptitude,Technology Aptitude,Codes used in personal computer,1,1,1
+36,Technology Aptitude,Technology Aptitude,HTML Markup language concepts,1,1,1
+37,Technology Aptitude,Technology Aptitude,Natural Language Processing Subfields,3,4,0
+38,Technology Aptitude,Technology Aptitude,Computer Modeling Concepts,3,4,0
+39,Technology Aptitude,Technology Aptitude,Computer Limitations,3,4,0
+40,Technology Aptitude,Technology Aptitude,Natural Language Processing Limitations,4,4,1
