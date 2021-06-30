@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+		  <script type="text/javascript" src="./js/graph.js"></script>
+		  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+		<style type="text/css" media="all">
+
+		body{font-family: 'Roboto'; color:#1E2554;}
+		img.bot-border {
+			border-bottom: solid 10px #fecb00;
+			padding-bottom: 20px;
+		}
+		table#skill-12 {
+			margin-top: 40px;
+		}
+		.row3-table table td, .row3-table table th {
+			padding: 0px !important;
+		}
+		.row3-table table tr:nth-child(odd) {background-color: #092259;}
+		.row3-table table table td, .row3-table table table th {
+			padding: 0px;
+		}
+		thead th, thead td {
+            background: #ffc200;
+			padding: 18px 18px;
+			font-size: 25px;
+			border-radius: 5px;
+			font-weight: 800;
+		}
+		tr:nth-child(odd) {background-color: #f2f2f2;}
+		tbody td {
+			padding: 18px 18px;
+			font-size: 25px;
+		}
+		.main {
+			padding: 0;
+			margin: 0;
+		}
+		@page {
+			size: A4 portrait; /* can use also 'landscape' for orientation */
+			border: thin solid black;
+			padding: 0px;
+
+			@bottom-center {
+				content: element(footer);
+			}
+
+			@top-center {
+				content: element(header);
+			}
+		}
+
+		div.pageheader {
+			display: block;
+			position: running(header);
+		}
+
+		div.pagefooter {
+			display: block;
+			position: running(footer);
+		}
+
+		#pagenumber:before {
+			content: counter(page);
+		}
+
+		#pagecount:before {
+			content: counter(pages);
+		}
+        .row3-table tbody {
+			font-size: 29px;
+			color: #fff;
+			line-height: 45px;
+		}
+
+		.row3-table table {
+			margin:45px;
+		}
+		p.score {
+			background-image: url('images/Path 51055.png');
+			background-size: cover;
+			height: 50px;
+			background-repeat: no-repeat;
+			font-size: 50px;
+			font-weight: 700;
+			line-height: 46px;
+		}
+
+		.row4-right p,.row4-left p  {
+			background-image: url('images/Path 51055.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 50px;
+			line-height: 45px;
+			font-size: 40px;
+			padding-top: 15px;
+			padding-bottom: 9px;
+		}
+		.row4 p.number {
+			background-image: url('images/Rectangle 1602@3x.png');
+		}
+
+
+		.row4 {
+			display: flex;
+		}
+
+		.row4-right {margin-left: 42px;width: 50%;}
+
+		.row4-left {
+			width: 50%;
+		}
+		.row5 p {font-size: 30px;line-height: 34px;}
+		.row5 img {
+			display: block;
+			/* align-items: center; */
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
+		.page3-row2 img {
+			margin-top:20px;
+			height: 300px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
+
+		.page3-row1 p {
+            font-size: 45px;
+			line-height: 50px;
+			color: #175e8d;
+			font-weight: 800;
+            margin-top: 5px;
+            margin-bottom: 5px;
+		}
+		.page3-row3 p {
+			font-size: 24px;
+			line-height: 26px;
+		}
+
+		.page3-row4 li {
+			font-size: 20px;
+			line-height: 24px;
+		}
+
+		.page3-row4 p {
+			font-size: 20px;
+			line-height: 24px;
+		}
+		.page4-row1 {
+			display: flex;
+			/* justify-content: center; */
+		}
+
+		.page4-row1 .column1,.page4-row1 .column2,.page4-row1 .column3,.page4-row1 .column4 {
+			 background-image: url('images/Path 51055.png');
+			 /* padding-top: 20px; */
+			 background-repeat: no-repeat;
+			 font-weight: 700;
+			 background-size: cover;
+			 padding-left: 5px;
+			 font-size: 29px;
+			 line-height: 20px;
+		}
+		.page4-row1 .column1,.page4-row1 .column2,.page4-row1 .column3,.page4-row1 .column4 {
+			margin-left:
+			20px;
+			padding-right:200px;
+		}
+		.page4-row2{
+			display: flex;
+			margin-top:20px;
+			/* justify-content: center; */
+		}
+		.page4-row2 .column1{
+			padding-left: 4px;
+			margin-left: 15px;
+			width: 259px;
+			height: 59px;
+			background-image: url('images/Rectangle 1599@3x.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.page4-row2 .column2{
+			margin-left: 20px;
+			padding-left: 5px;
+			width: 348px;
+			height: 59px;
+			background-image: url('images/Rectangle 1599@3x.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.page4-row2 .column3{
+			margin-left: 15px;
+			padding-left: 6px;
+			width: 275px;
+			height: 59px;
+			background-image: url('images/Rectangle 1599@3x.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.page4-row2 .column4{
+			margin-left: 15px;
+			padding-left: 10px;
+			width: 282px;
+			height: 59px;
+			background-image: url('images/Rectangle 1599@3x.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.page5-row1 {
+			display: flex;
+		}
+		.page5-row1 .column1 {background-image: url('images/Path 51055.png');background-repeat: no-repeat;background-size: cover;}
+		.page5-row1 .column2 {background-image: url('images/Path 51055.png');background-repeat: no-repeat;background-size: cover;margin-left: 20px;width: 133px;
+			padding-left: 5px;
+			font-size: 16px;}
+		.page5-row1 .column3 {background-image: url('images/Path 51055.png');background-repeat: no-repeat;background-size: cover;margin-left: 20px;width: 133px;
+			padding-left: 5px;
+			font-size: 16px;}
+		.page5-row1 .column4 {background-image: url('images/Path 51055.png');background-repeat: no-repeat;background-size: cover;margin-left: 20px;width: 133px;
+			padding-left: 5px;
+			font-size: 16px;}
+		.page5-row1 .column5 {background-image: url('images/Path 51055.png');background-repeat: no-repeat;background-size: cover;width: 133px;
+			padding-left: 5px;
+			font-size: 16px;
+		margin-left: 20px;}
+		.page5-row1 .column6 {background-image: url('images/Path 51055.png');background-repeat: no-repeat;background-size: cover;margin-left: 20px;width: 133px;
+			padding-left: 5px;
+			font-size: 16px;}
+		.page5-row1 .column7 {background-image: url('images/Path 51055.png');background-repeat: no-repeat;background-size: cover;margin-left: 20px;width: 133px;
+			padding-left: 5px;
+			font-size: 16px;}
+
+			.page5-row2 {
+			display: flex;
+			margin-top: 0px;
+		}
+
+		.page5-row2 .column1 {
+			background-image: url('images/Rectangle 1613.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 30px;
+			padding-left: 2px;
+		}
+
+		.page5-row2 .column2{
+			background-image: url('images/Rectangle 1613.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 138px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row2 .column3{
+			background-image: url('images/Rectangle 1613.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row2 .column4{
+			background-image: url('images/Rectangle 1613.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row2 .column5{
+			background-image: url('images/Rectangle 1613.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row2 .column6{
+			background-image: url('images/Rectangle 1613.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row2 .column7{
+			background-image: url('images/Rectangle 1613.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row3{
+			display:flex;
+		}
+		.page5-row3 .column1 {
+
+			width: 30px;
+			padding-left: 2px;
+		}
+
+		.page5-row3 .column2{
+
+			width: 138px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row3 .column3{
+
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row3 .column4{
+
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row3 .column5{
+
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row3 .column6{
+
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page5-row3 .column7{
+
+			width: 136px;
+			padding-left: 2px;
+			margin-left: 20px;
+		}
+		.page6-row1 {
+		   font-size: 33px;
+			line-height: 40px;
+			color: #445781;
+			font-weight: 700;
+			width: 75%;
+		}
+
+		.page6-row2 {
+			font-size: 22px;
+			line-height: 30px;
+			width: 75%;
+			color: #445781;
+		}
+
+		.page6-row4 {
+			margin-top: 24px;
+			font-size: 23px;
+			line-height: 30px;
+			color: #092259;
+		}
+
+		.page6-row7 {
+			margin-top: 24px;
+			font-size: 23px;
+			line-height: 30px;
+			color: #092259;
+		}
+		.page6-row8 {
+			color: #092260;
+			font-weight: 700;
+			font-size: 25px;
+			line-height: 30px;
+		}
+		.image-divider {
+			border-bottom: 2px solid yellow;
+			border-bottom-width: 7px;
+			width: 230px;
+			margin-top: 20px;
+		}
+
+        </style>
+    </head>
+    <body>
+	<div class="main">
+	<div class="container">
+        <!-- structure for 1st page-->
+        <section class="first-page">
+            <div style="display: inline-block; height: 1500px;width: 500px;background-color: #092259; border-right: 3px solid #FECB00; border-width: 63px; box-shadow: 3px 0px 14px 0px #a5a5a5;">
+                <div style="position: absolute; top: 523px;left: 166px;">
+                    <img  style="width: 400px;" src="images/Group 1.png"  alt="img" >
+                </div>
+            </div>
+            <div style="display: inline-block;
+            position: absolute;
+            top: 0;">
+                <div style="transform: translate(50%, 100%);">
+                    <img src="images/FutureEdge logo CC@3x.png" alt="img1">
+                </div>
+                <div style="position: absolute;top: 450px;  left: 0px; background-image:url('images/Path 50902@3x.png');   width: 777px; height: 273px;">
+                    <p id="centuaryskills" style="margin-left: -230px; text-transform:capitalize; color: white;  font-size: 42px;  text-align: center;  line-height: 56px; font-weight: bold;">21<sup>st</sup>Centuary skills<br>
+                    olympiads reports</p>
+                    <p id="skill-date" style="margin-left: -225px; text-transform:capitalize;color: white;  font-size: 22px; text-align: center; line-height: 25px; font-weight: bold;margin-top: -40px;">19<sup>th</sup>june 2021</p>
+                </div>
+                <div style="position: absolute; top: 850px; transform: translate(80%, 0%);">  <img src="images/Group 2008@3x.png" alt="img2">        </div>
+                <div style="position: absolute;
+                top: 1100px; transform: translate(35%, 0%);">     <img src="images/lIDA-ogo-1-1@3x.png" alt="img3">              </div>
+            </div>
+        </section>
+
+		<p style="page-break-after:always;"/>
+        <!-- structure for second page-->
+        <section style="margin-top: 50px; background-image:url('./images/right-conal-img.png'); background-position:top right; background-repeat:no-repeat; background-size: 30%, 0%;">
+            <div style="display: inline-block;">
+                <div class="col1">
+                    <img src="images/FutureEdge logo CC@3x.png" alt="img1">
+                </div>
+                <div class="col2">
+                  <!--  <img class="pro" src="images/Repeat but different properties/Group 3058@3x.png" alt="">
+                </div> -->
+            </div>
+            <div style="font-size: 60px;
+            line-height: 25px;
+            color: #092259;
+            font-weight: 700;">
+                <p>Summary</p>
+            </div>
+            <div style="background-image: url('images/Path 50902@3x.png');
+            background-size: cover;
+            height: 325px;
+			margin-top: 100px;
+			display: flex;">
+                <div style="position: relative;
+                bottom: 85px;">
+                    <img src="images/Group 3058@3x.png" alt="img">
+
+                </div>
+                <div style="color: #ffff;
+                font-size: 26px;
+                line-height: 32px;
+                margin-left: -264px;
+                 margin-top: 91px;">
+                    <p id="competitive-world">Helping students identify their<br>
+                        capabilities and prepare them<br>
+                        for today’s competitive world.</p>
+                </div>
+                <div style="border-left: 1px solid #efefef;
+                margin-left: 55px;"></div>
+                <div class="row3-table">
+                    <table style="width:85%;" id="skill-11">
+                        <tr>
+                            <td>Name: </td>  <td><span id="name">sachin</span>
+                        </tr>
+                        <tr>
+                            <td>school:</td> <td> <span>school Name</span></td>
+                        </tr>
+                        <tr>
+                            <td>Grade:</td>  <td><span>5th</span></td>
+                        </tr>
+                        <tr>
+                            <td>National Rank:</td> <td> <span>500</span></td>
+                        </tr>
+                        <tr>
+                            <td>score:</td> <td> <span>32/50</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row4" >
+			<table style="width:100%;" id="skill-12">
+				<thead>
+                        <tr>
+                            <td>Your score </td>  <td>National Average score score</td>
+                        </tr>
+				</thead>
+				<tbody>
+                        <tr>
+                            <td>32/40</td> <td>24/40</td>
+                        </tr>
+				</tbody>
+
+            </table>
+
+
+            </div>
+            <div class="row5">
+                <p id="yout-score"><strong>Your Score:</strong> Total number of correct answers/Total number of questions attempted. Example: Your Score = 32/40 denotes you
+                    answered 32 out of 40 questions correctly where 40 is the maximum number of questions in the challenge.</p>
+                    <p id="national-score"><strong>National Average Score:</strong> This is the Average number of correct answers for the respective grade category/Maximum number of
+                    questions. For Example: National Score = 24/40 denotes on an average students answered 24 out of 40 questions correctly.</p>
+            </div>
+            <div class="row5">
+                <div id="chartContainer" style="height: 300px; max-width: 920px; margin: 0px auto;">   </div>
+            </div>
+
+        </section>
+
+		<p style="page-break-after:always;"/>
+        <!-- start page 3-->
+        <section class="page3" style="background-image:url('./images/right-conal-img.png'); background-position:top right; background-repeat:no-repeat; background-size: 30%, 0%;">
+            <div style="display: inline-block;">
+                <div class="col1">
+                    <img src="images/FutureEdge logo CC@3x.png" alt="img1">
+                </div>
+                <div class="col2">
+                  <!--  <img class="pro" src="images/Repeat but different properties/Group 3058@3x.png" alt="">
+                </div> -->
+            </div>
+            <div class="page3-row1">
+                <p id="performance-skills">Performance across different<br>
+                    Skills and Subskills</p>
+            </div>
+            <div class="page3-row2">
+                <img src="images/Perfomance Img-01.png" alt="">
+            </div>
+
+            <div class="page3-row3" >
+                <p id="circular-skill">The Circular Skill Profile represents your performance on each core skill in each subject test of Future edge Olympiad.
+                    The outer circle represents 100%. The section between two axes represents a core subskill in a skill, and the shaded
+                    region plots your performance on the skill. The greater the radius of shaded section, the better the performance.</p>
+            </div>
+            <div class="page3-row4">
+                <p><strong>Critical Thinking: </strong>Ability to analyze facts to form a judgment</p>
+                <ul>
+                    <li><strong>Verbal Reasoning:</strong> Ability to comprehend and reason using concepts expressed through language.</li>
+                    <li><strong>Logical Reasoning:</strong>Rational and critical way of thinking and problem-solving.</li>
+                </ul>
+                <p><strong>Digital Literacy:</strong>Ability to find, evaluate, and clearly communicate information on digital platforms</p>
+                <ul>
+                    <li><strong>Media Literacy:</strong>Ability to access, critically evaluate, and create or manipulate media.</li>
+                    <li><strong>Information Literacy:</strong>Ability to find, evaluate, organize, use, and communicate information in all its various formats</li>
+            </ul>
+            <p><strong>Communication:</strong>Ability you use when giving and receiving different kinds of information</p>
+            <ul>
+                <li><strong>Comprehension:</strong>Ability to process text, understand its meaning, and to integrate with what the reader already knows</li>
+                <li><strong>Vocabulary:</strong>Ability to understand words and communicate effectively.</li>
+            </ul>
+            <p><strong>General Knowledge:</strong>Knowledge about many different things, as opposed to detailed knowledge about one particular subject</p>
+            <ul>
+                <li><strong>Social Studies:</strong>Knowledge about social science and the humanities, including history, geography, and political science.</li>
+                <li><strong>Sports & Society:</strong>Knowledge about Sports and Society.</li>
+                <li><strong>Science:</strong>Knowledge and understanding of the natural and social world.</li>
+                <li><strong>Current Affairs:</strong>Awareness of local and global affairs happening.</li>
+            </ul>
+            <p><strong>Technology Aptitude:</strong>Ability to possess a high intellect in electronics and technology</p>
+            <ul>
+                <li><strong>Information Technology:</strong>Techniques, skills, methods, and processes used in the production of goods or services.</li>
+                <li><strong>Artificial Intelligence:</strong>Understanding of intelligence demonstrated by machines.</li>
+            </ul>
+            </div>
+        </section>
+        <!-- start 4 page-->
+		<p style="page-break-after:always;"/>
+        <section class="page4">
+            <div style="display: inline-block;">
+                <div class="col1">
+                    <img src="images/FutureEdge logo CC@3x.png" alt="img1">
+                </div>
+                <div class="col2">
+                  <!--  <img class="pro" src="images/Repeat but different properties/Group 3058@3x.png" alt="">
+                </div> -->
+            </div>
+            <div class="page3-row1">
+                <p>Performance across different<br>
+                    Skills and Subskills</p>
+            </div>
+            <div class="page4-row1">
+
+			<table style="width:100%;" id="skill-1">
+				<thead>
+					<tr>
+						<td>Skill</td><td>Description</td><td>Right Answer</td><td>Wrong Answer</td>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>Critical Thinking</td><td>Ability to analyse facts to form a judgment</td><td>1,34,5,6,7,8</td><td>2.5</td>
+					</tr>
+
+					<tr>
+						<td>Digital Literacy</td><td>Ability to find, evaluate, and clearly communicate</td><td>9,11,14,15,16</td><td>10,12,13</td>
+					</tr>
+
+					<tr>
+						<td>Communication</td><td>Ability you use when giving and receiving different kinds of information</td><td>17,18,23,24</td><td>19,20,21</td>
+					</tr>
+
+					<tr>
+						<td>General Knowledge</td><td>Knowledge about many different things, as opposed to detailed knowledge about one particular subject</td><td>25,26,27,28,29,30,31,32</td><td>-</td>
+					</tr>
+
+					<tr>
+						<td>Technology Aptitude</td><td>Ability to possess a high intellect in electronics and technology</td><td>25,26,27,28,29,30,31,32</td><td>-</td>
+					</tr>
+
+
+				</tbody>
+
+				<tfoot>
+				</tfoot>
+
+			</table>
+
+            </div>
+
+
+        </section>
+        <!-- start 5th page -->
+		<p style="page-break-after:always;"/>
+        <section class="page5">
+            <div>
+                <div class="col1">
+                    <img src="images/FutureEdge logo CC@3x.png" alt="img1">
+                </div>
+
+            </div>
+            <div class="page3-row1">
+                <p>Question-wise Report</p>
+            </div>
+
+            <div class="page5-row1">
+				<div id="question_wise"></div>
+            </div>
+
+
+			<p style="page-break-after:always;"/>
+            <!---start 6th page-->
+            <section class="page6" style="background-image:url('./images/right-conal-img.png'); background-position:top right; background-repeat:no-repeat; background-size: 30%, 0%;">
+                <section style="margin-top: 50px;">
+                    <div style="display: inline-block;">
+                        <div class="col1">
+                            <img src="images/FutureEdge logo CC@3x.png" alt="img1">
+                        </div>
+                        <div class="col2">
+                          <!--  <img class="pro" src="images/Repeat but different properties/Group 3058@3x.png" alt="">
+                        </div> -->
+                    </div>
+                <div class="page6-row1">
+                    <p>About Olympiad</p>
+                </div>
+                <div class="page6-row2">
+                    <p>India Didactics Association, in collaboration with Augmented Learning - the
+                        AugLi App brings to you Future Edge Challenge to assess the cognitive and
+                        future skills of the students in a Remarkable gamified version.</p>
+                </div>
+                <div class="page6-row3">
+                    <img src="images/Group 2008@3x.png" alt="img2" class="bot-border">
+                 </div>
+                <div class="page6-row4">
+                    <p>AugLi is a Gurugram-based leading EdTech company with established credentials. Through its technology
+                        platform, AugLi has developed a community of engaged learners with deep engagement around 21st Century
+                        Skills. AugLi enables learners to be more aware, have a point of view and express themselves better. It focuses
+                        on the future fluencies of digital literacy, communication, critical thinking and collaboration across networks.
+                        Mentored by global educators and advisors from Stanford University and IIT Delhi, AugLi was recognised by the
+                        Global Skills and Education Forum, Dubai, Singapore EdTech and Inc42 as one of the innovative solutions for
+                        Critical Thinking.</p>
+                </div>
+                <div class="page6-row6">
+                    <img src="images/lIDA-ogo-1-1@3x.png" alt="img3" class="bot-border">
+                </div>
+                <div class="page6-row7">
+                    <p>With a decade of fostering development in the education sector, India Didactics Association has grown to be the
+                        largest national association of education stakeholders that primarily aims to unite and inspire the entire
+                        education fraternity towards uplifting the education and skills sector of India.</p>
+                </div>
+                <div class="page6-row8">
+                    <p>For further clarifications, email to hello@augli.ai or WA on 8810465799</p>
+                </div>
+            </section>
+			</div>
+			</div>
+    </body>
+</html>
