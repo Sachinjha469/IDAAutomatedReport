@@ -1,19 +1,23 @@
 import asyncio
-from pyppeteer import launch
 import pandas as pd
-import plotly.express as px
+from pyppeteer import launch
+from plottingspiderchart import create_graph
 
-data = {"name": "sachin", "school": "School Name", "Grade": "Grade", "n_rank": 500, "score": 32, "total": 50}
+subskill = ['Comprehension', 'Vocabulary', 'Logical Reasoning', 'Verbal Reasoning', 'Information Literacy',
+            'Media Literacy', 'Current Affairs', 'Science', 'Sports & Society', 'SST', 'Artificial Intelligence',
+            'Information Technology']
 
 
 async def main():
-    df = pd.read_csv('Untitled spreadsheet - Sheet1.csv')
-    print(df.head(10))
-    fig = px.line_polar(df, r='Score', theta='Subskill', line_close=True)
-    fig.update_traces(fill='toself')
-    fig.update_layout(width=700, height=700, margin=dict(l=50, r=50, b=100, t=100, pad=4))
-    fig.write_image("bubble_chart.png")
+    # df = pd.read_csv('Untitled spreadsheet - Sheet1.csv')
+    # fig = px.line_polar(df, r='Score', theta='Subskill', line_close=True)
+    # fig.update_traces(fill='toself')
+    # fig.update_layout(width=700, height=700, margin=dict(l=50, r=50, b=100, t=100, pad=4))
+    # fig.write_image("bubble_chart.png")
+    # generate radar chart in advance. Same will be used by HTML file for rendering.
+    await create_graph()
 
+    # open the HTML page.
     browser = await launch()
     page = await browser.newPage()
     await page.goto('file:///Users/akash/Projects/python/IDAAutomatedReport/htmlfinal/index.html')
@@ -44,9 +48,9 @@ async def main():
     await page.evaluate(f" document.getElementById('nat_score_desc').innerHTML = `{nat_score_desc}`")
 
     # Plot the bar chart
-    score_string = "() =>  {  var chart = new CanvasJS.Chart('chartContainer', { title:{text: 'Score Report'}, data: [{dataPoints: [{x: 1, y: 90, label: 'Your Score'},{ x: 2, y: 60,  label: 'National Average Score' }]}]});chart.render();}"
-    # score_string = "var ctx = document.getElementById('chartContainer').getContext('2d');var myChart = new Chart(ctx, {type: 'bar',data: {labels: ['Your Score', 'National Average Score'], datasets: [{ label: 'Score Analysis', data: [12, 19], backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)',],borderColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)',],borderWidth: 0}]},options: {scales: {y: {beginAtZero: true}}}});"
+    score_string = """() =>  {  var chart = new CanvasJS.Chart('chartContainer', { title:{text: 'Score Report'}, data: [{dataPoints: [{x: 1, y: %s, label: 'Your Score'},{ x: 2, y: %s,  label: 'National Average Score' }]}]});chart.render();}""" % (obtained_mark, avg_nat_marks)
     await page.evaluate(score_string)
+
     # plot the skill wise table
     skill_df = pd.read_csv("Performance across Skills & Sub-Skills - Sheet1.csv")
     skill_node = ""
