@@ -25,11 +25,11 @@ async def main():
 
     #  Set the data.
     name = "Akash Kumar Shukla"
-    school_name = "School Name"
-    grade = "5th"
-    nat_rank = 500
+    school_name = "My School Name"
+    grade = "7th"
+    nat_rank = 503
     obtained_mark = 37
-    avg_nat_marks = 24
+    avg_nat_marks = 22
     total_marks = 40
     your_score = f"{obtained_mark}/{total_marks}"
     avg_nat_score = f"{avg_nat_marks}/{total_marks}"
@@ -78,7 +78,7 @@ async def main():
     child_node += "</table><p style='page-break-after:always;'/>"
     insert_string = f" document.getElementById('question_wise').innerHTML = `{child_node}`"
     await page.evaluate(insert_string)
-    await page.pdf({'path': 'Olympiad Result.pdf', 'displayHeaderFooter': True,
+    await page.pdf({'path': 'IDAReport.pdf', 'displayHeaderFooter': True,
                     'margin': {'top': '35', 'right': '10', 'bottom': '35', 'left': '10'},
                     '-webkit-print-color-adjust': True, 'printBackground': True})
     await browser.close()
