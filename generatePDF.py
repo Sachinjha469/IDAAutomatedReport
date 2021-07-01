@@ -44,8 +44,9 @@ async def main():
     await page.evaluate(f" document.getElementById('nat_score_desc').innerHTML = `{nat_score_desc}`")
 
     # Plot the bar chart
-    await page.evaluate("() =>  {  var chart = new CanvasJS.Chart('chartContainer', { title:{text: 'Score Report'}, data: [{dataPoints: [{x: 1, y: 90, label: 'Your Score'},{ x: 2, y: 60,  label: 'National Average Score' }]}]});chart.render();}")
-
+    score_string = "() =>  {  var chart = new CanvasJS.Chart('chartContainer', { title:{text: 'Score Report'}, data: [{dataPoints: [{x: 1, y: 90, label: 'Your Score'},{ x: 2, y: 60,  label: 'National Average Score' }]}]});chart.render();}"
+    # score_string = "var ctx = document.getElementById('chartContainer').getContext('2d');var myChart = new Chart(ctx, {type: 'bar',data: {labels: ['Your Score', 'National Average Score'], datasets: [{ label: 'Score Analysis', data: [12, 19], backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)',],borderColor: ['rgba(255, 99, 132, 1)','rgba(54, 162, 235, 1)',],borderWidth: 0}]},options: {scales: {y: {beginAtZero: true}}}});"
+    await page.evaluate(score_string)
     # plot the skill wise table
     skill_df = pd.read_csv("Performance across Skills & Sub-Skills - Sheet1.csv")
     skill_node = ""
