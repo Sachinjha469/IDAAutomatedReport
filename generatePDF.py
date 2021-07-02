@@ -31,8 +31,12 @@ async def main():
     obtained_mark = 37
     avg_nat_marks = 22
     total_marks = 40
+    #  conversion factor to the percentage
+    cnv_factor = 100/total_marks
     your_score = f"{obtained_mark}/{total_marks}"
     avg_nat_score = f"{avg_nat_marks}/{total_marks}"
+    your_score_lbl = str((round(obtained_mark * cnv_factor, 2)))
+    avg_score_lbl = str(round(avg_nat_marks * cnv_factor, 2))
     your_score_desc = f"<strong>Your Score:</strong> Total number of correct answers/Total number of questions attempted. Example: Your Score = {obtained_mark}/{total_marks} denotes you answered {obtained_mark} out of {total_marks} questions correctly where {total_marks} is the maximum number of questions in the challenge."
     nat_score_desc = f"<strong>National Average Score:</strong> This is the Average number of correct answers for the respective grade category/Maximum number of questions. For Example: National Score = {avg_nat_marks}/{total_marks} denotes on an average students answered {avg_nat_marks} out of {total_marks} questions correctly."
 
@@ -48,7 +52,7 @@ async def main():
     await page.evaluate(f" document.getElementById('nat_score_desc').innerHTML = `{nat_score_desc}`")
 
     # Plot the bar chart
-    score_string = """() =>  {  var chart = new CanvasJS.Chart('chartContainer', { title:{text: 'Score Report'}, data: [{dataPoints: [{x: 1, y: %s, label: 'Your Score'},{ x: 2, y: %s,  label: 'National Average Score' }]}]});chart.render();}""" % (obtained_mark, avg_nat_marks)
+    score_string = """() =>  {  var chart = new CanvasJS.Chart('chartContainer', { title:{text: 'Score Report'}, axisY: {title: 'Percentage Accuracy', interval: 10}, data: [{dataPoints: [{x: 1, y: %s, label: 'Your Score', indexLabel: '%s'},{ x: 2, y: %s,  label: 'National Average Score', indexLabel: '%s' }]}]});chart.render();}""" % (obtained_mark * cnv_factor, your_score_lbl, avg_nat_marks * cnv_factor, avg_score_lbl)
     await page.evaluate(score_string)
 
     # plot the skill wise table
