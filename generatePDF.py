@@ -24,8 +24,8 @@ async def main():
     await page.emulateMedia('screen')
 
     #  Set the data.
-    name = "Akash Kumar Shukla"
-    school_name = "My School Name"
+    name = "Akash"
+    school_name = "Your School"
     grade = "7th"
     nat_rank = 503
     obtained_mark = 37
