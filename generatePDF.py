@@ -27,12 +27,16 @@ user_ids = [44389, 44258, 41727, 42052, 43939, 42996, 39878, 44139, 43024, 42164
 async def main():
     info_df = pd.read_csv("Para Article Data - Page 2 (1).csv")
     for index in range(0, info_df.shape[0]):
+        print(index)
+        stu_user_id=info_df.values[index][0]
+        print(stu_user_id)
+        filename=info_df.values[index][1]+".pdf"
         # await create_graph()
 
         # open the HTML page.
         browser = await launch()
         page = await browser.newPage()
-        await page.goto('file:///Users/akash/Projects/python/IDAAutomatedReport/htmlfinal/index.html')
+        await page.goto('file:///home/sachin/Files/IDAAutomatedReport/htmlfinal/index.html')
         await page.emulateMedia('screen')
 
         # get the data
@@ -70,12 +74,15 @@ async def main():
         await page.evaluate(score_string)
 
         # plot the skill wise table
-        skill_df = pd.read_csv("Performance across Skills & Sub-Skills - Sheet1.csv")
+        skill_df = pd.read_csv("FEC Certificates - Final - Performance across different skills.csv")
         skill_node = ""
         s_header_node = "<thead><tr><td>Skill</td><td>Description</td><td>Right Answer</td><td>Wrong Answer</td></tr></thead>"
         skill_node += s_header_node
+        
         for row in range(0, (skill_df.shape[0])):
-            skill_node += f"<tr><td>{skill_df.values[row][0]}</td><td>{skill_df.values[row][1]}</td><td>{skill_df.values[row][2]}</td><td>{skill_df.values[row][3]}</td></tr>"
+            if skill_df.values[row][0]==stu_user_id: 
+                print(skill_df.values[row][0])        
+                skill_node += f"<tr><td>{skill_df.values[row][2]}</td><td>{skill_df.values[row][3]}</td><td>{skill_df.values[row][4]}</td><td>{skill_df.values[row][5]}</td></tr>"
         skill_string = f" document.getElementById('skill_wise').innerHTML = `{skill_node}`"
         await page.evaluate(skill_string)
 
@@ -96,7 +103,7 @@ async def main():
         child_node += "</table><p style='page-break-after:always;'/>"
         insert_string = f" document.getElementById('question_wise').innerHTML = `{child_node}`"
         await page.evaluate(insert_string)
-        await page.pdf({'path': 'IDAReport.pdf', 'displayHeaderFooter': True,
+        await page.pdf({'path': filename, 'displayHeaderFooter': True,
                         'margin': {'top': '35', 'right': '10', 'bottom': '35', 'left': '10'},
                         '-webkit-print-color-adjust': True, 'printBackground': True})
         await browser.close()
