@@ -7,7 +7,7 @@ subskill = ['Comprehension', 'Vocabulary', 'Logical Reasoning', 'Verbal Reasonin
             'Information Technology']
 
 
-async def create_graph():
+async def create_graph(x):
     comm = []
     ct = [0, 0]
     dl = [0, 0, 0, 0]
@@ -16,21 +16,22 @@ async def create_graph():
     length = len(subskill)
     print(length)
     count = 0
-    with open('Untitled spreadsheet - Sheet1.csv') as csv_file:
+    with open('Para Article Data - Page 3.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             count = count + 1
             if count > 1:
-                if row[0] == 'Communication':
-                    comm.append(row[2])
-                elif row[0] == 'Critical Thinking':
-                    ct.append(row[2])
-                elif row[0] == 'Digital Literacy':
-                    dl.append(row[2])
-                elif row[0] == 'General Knowledge':
-                    gk.append(row[2])
-                elif row[0] == 'Technology Aptitude':
-                    ta.append(row[2])
+                if row[3] == x:  
+                    if row[0] == 'Communication':
+                        comm.append(row[2])
+                    elif row[0] == 'Critical Thinking':
+                        ct.append(row[2])
+                    elif row[0] == 'Digital Literacy':
+                        dl.append(row[2])
+                    elif row[0] == 'General Knowledge':
+                        gk.append(row[2])
+                    elif row[0] == 'Technology Aptitude':
+                        ta.append(row[2])
 
         print(comm)
         len_comm = len(comm)
