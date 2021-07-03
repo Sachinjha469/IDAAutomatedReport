@@ -25,7 +25,8 @@ user_ids = [44389, 44258, 41727, 42052, 43939, 42996, 39878, 44139, 43024, 42164
 
 
 async def main():
-    for (index, user_id) in enumerate(user_ids):
+    info_df = pd.read_csv("Para Article Data - Page 2 (1).csv")
+    for index in range(0, info_df.shape[0]):
         # await create_graph()
 
         # open the HTML page.
@@ -36,26 +37,13 @@ async def main():
 
         # get the data
         #  Set the data.
-        name = ""
-        school_name = ""
-        grade = ""
-        nat_rank = 0
-        obtained_mark = 0
-        avg_nat_marks = 0
-        total_marks = 40
-
-        info_df = pd.read_csv("Para Article Data - Page 2 (1).csv")
-        for s_no in range(0, info_df.shape[0]):
-            if info_df.values[s_no][0] == user_id:
-                name = info_df.values[s_no][1]
-                school_name = info_df.values[s_no][2]
-                grade = info_df.values[s_no][3]
-                score_str = str(info_df.values[s_no][4]).split("/")
-                obtained_mark, total_marks = int(score_str[0]), int(score_str[1])
-                nat_rank = info_df.values[s_no][5]
-                avg_nat_marks = int(info_df.values[s_no][6])
-                break
-
+        name = info_df.values[index][1]
+        school_name = info_df.values[index][2]
+        grade = info_df.values[index][3]
+        score_str = str(info_df.values[index][4]).split("/")
+        obtained_mark, total_marks = int(score_str[0]), int(score_str[1])
+        nat_rank = info_df.values[index][5]
+        avg_nat_marks = int(info_df.values[index][6])
         #  conversion factor to the percentage
         cnv_factor = 100 / total_marks
         your_score = f"{obtained_mark}/{total_marks}"
