@@ -15,7 +15,8 @@ async def main():
         student_df = pd.read_csv("Schoolwise report.csv")
         student_list = student_df.loc[student_df['school name'] == school[0]]
         print(student_list.shape[0])
-
+        # if student_list.shape[0] < 12:
+        #     continue
         await create_graph()
         # open the HTML page.
         browser = await launch()
@@ -48,19 +49,8 @@ async def main():
                         'margin': {'top': '35', 'right': '10', 'bottom': '35', 'left': '10'},
                         '-webkit-print-color-adjust': True, 'printBackground': True})
         await browser.close()
-        break
+        t = open("temp.html", "w")
+        t.write(child_node)
 
 
 asyncio.get_event_loop().run_until_complete(main())
-
-
-# school_df = pd.read_csv("Schoolwise report.csv")
-# school_list = school_df.groupby(school_df.columns.values[0])
-#
-# for school in school_list:  # .count()
-#     student_df = pd.read_csv("Schoolwise report.csv")
-#     school_name = student_df['school name'][0]
-#     # test = student_df.loc["school_name" != ""]
-#     test = student_df.loc[student_df['school name'] == school[0]]
-#     print(student_df['school name'] == school[0])
-#     # print(student_df['school name'][0])
