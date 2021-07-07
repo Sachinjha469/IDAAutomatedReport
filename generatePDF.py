@@ -31,8 +31,8 @@ async def main():
         # plot the table
         child_node = ""
         index = 0
-        q_header_node = "<table><thead><tr><td>S.No</td><td>Name</td><td>Grade</td><td>Communication</td><td>Critical Thinking</td><td>Digital Literacy</td><td>General Knowledge</td><td>Technology Aptitude</td></tr></thead>"
-        q_header_node_with_margin = "<table style='margin-top: 50px !important;'><thead><tr><td>S.No</td><td>Name</td><td>Grade</td><td>Communication</td><td>Critical Thinking</td><td>Digital Literacy</td><td>General Knowledge</td><td>Technology Aptitude</td></tr></thead>"
+        q_header_node = "<table id='skill-2'><thead><tr><td>S.No</td><td>Name</td><td>Grade</td><td>Communication</td><td>Critical Thinking</td><td>Digital Literacy</td><td>General Knowledge</td><td>Technology Aptitude</td></tr></thead>"
+        q_header_node_with_margin = "<table id='skill-2' style='margin-top: 50px !important;'><thead><tr><td>S.No</td><td>Name</td><td>Grade</td><td>Communication</td><td>Critical Thinking</td><td>Digital Literacy</td><td>General Knowledge</td><td>Technology Aptitude</td></tr></thead>"
         for row in range(0, (student_list.shape[0])):
             if index % 10 == 0:
                 if index != 0:
@@ -49,8 +49,6 @@ async def main():
                         'margin': {'top': '35', 'right': '10', 'bottom': '35', 'left': '10'},
                         '-webkit-print-color-adjust': True, 'printBackground': True})
         await browser.close()
-        t = open("temp.html", "w")
-        t.write(child_node)
 
 
 asyncio.get_event_loop().run_until_complete(main())
