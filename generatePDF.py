@@ -15,8 +15,8 @@ async def main():
         student_df = pd.read_csv("Schoolwise report.csv")
         student_list = student_df.loc[student_df['school name'] == school[0]]
         print(student_list.shape[0])
-        # if student_list.shape[0] < 12:
-        #     continue
+        if student_list.shape[0] < 12:
+            continue
         await create_graph()
         # open the HTML page.
         browser = await launch()
@@ -40,7 +40,7 @@ async def main():
                     child_node += q_header_node_with_margin
                 else:
                     child_node += q_header_node
-            child_node += f"<tr><td>{row + 1}</td><td>{student_list.values[row][1]}</td><td>{student_list.values[row][2]}</td><td>{student_list.values[row][3]}</td><td>{student_list.values[row][4]}</td><td>{student_list.values[row][5]}</td><td>{student_list.values[row][6]}</td><td>{student_list.values[row][7]}</td></tr>"
+            child_node += f"<tr><td>{row + 1}</td><td style='text-align: left'>{student_list.values[row][1]}</td><td>{student_list.values[row][2]}</td><td>{student_list.values[row][3]}</td><td>{student_list.values[row][4]}</td><td>{student_list.values[row][5]}</td><td>{student_list.values[row][6]}</td><td>{student_list.values[row][7]}</td></tr>"
             index += 1
         child_node += "</table><p style='page-break-after:always;'/>"
         insert_string = f" document.getElementById('school_wise').innerHTML = `{child_node}`"
